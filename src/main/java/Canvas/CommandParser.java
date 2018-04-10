@@ -10,8 +10,8 @@ public class CommandParser {
     private Set<Command> commands;
 
     @Inject
-    public CommandParser(Set<Command> commandWrappers){
-        this.commands = commandWrappers;
+    public CommandParser(Set<Command> commands){
+        this.commands = commands;
     }
 
     public Optional<Command> parseCommand(String cmdText) {

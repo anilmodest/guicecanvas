@@ -14,15 +14,15 @@ public class CanvasModule extends AbstractModule {
         bind(Renderer.class).to(TextRenderer.class);
         bind(Console.class).to(SystemConsole.class);
 
-        Multibinder<Command> supportedCommander = Multibinder.newSetBinder(binder(), Command.class);
-        supportedCommander.addBinding().to(CanvasCommand.class);
-        supportedCommander.addBinding().to(LineCommand.class);
-        supportedCommander.addBinding().to(RectangleCommand.class);
-        supportedCommander.addBinding().to(BucketFillCommand.class);
-        supportedCommander.addBinding().to(HelpCommand.class);
-        supportedCommander.addBinding().to(QuitCommand.class);
-        supportedCommander.addBinding().to(RedoCommand.class);
-        supportedCommander.addBinding().to(UndoCommand.class);
+        Multibinder<Command> commands = Multibinder.newSetBinder(binder(), Command.class);
+        commands.addBinding().to(CanvasCommand.class);
+        commands.addBinding().to(LineCommand.class);
+        commands.addBinding().to(RectangleCommand.class);
+        commands.addBinding().to(BucketFillCommand.class);
+        commands.addBinding().to(HelpCommand.class);
+        commands.addBinding().to(QuitCommand.class);
+        commands.addBinding().to(RedoCommand.class);
+        commands.addBinding().to(UndoCommand.class);
 
     }
 

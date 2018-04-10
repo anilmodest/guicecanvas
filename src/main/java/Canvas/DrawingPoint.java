@@ -30,7 +30,7 @@ public class DrawingPoint {
     }
 
 
-    public Character getDrawingChar() {
+    public char getDrawingChar() {
         return drawingChar;
     }
 
