@@ -27,13 +27,13 @@ public class CanvasShapeSpecs {
 
         describe("Validate Problem spec", () -> {
 
-            Set<CommandWrapper> supportedCommands = new HashSet<>();
-            supportedCommands.add(new CanvasCommandWrapper());
-            supportedCommands.add(new LineCommandWrapper());
-            supportedCommands.add(new RectangleCommandWrapper());
-            supportedCommands.add(new BucketFillCommandWrapper());
-            supportedCommands.add(new HelpCommandWrapper());
-            supportedCommands.add(new QuitCommandWrapper());
+            Set<Command> supportedCommands = new HashSet<>();
+            supportedCommands.add(new CanvasCommand());
+            supportedCommands.add(new LineCommand());
+            supportedCommands.add(new RectangleCommand());
+            supportedCommands.add(new BucketFillCommand());
+            supportedCommands.add(new HelpCommand());
+            supportedCommands.add(new QuitCommand());
             Console mockConsole = mock(Console.class);
             CommandParser commandParser = new CommandParser(supportedCommands);
             CommandManager commandManager = new CommandManager(new TextRenderer(mockConsole));
@@ -41,8 +41,8 @@ public class CanvasShapeSpecs {
             it("Draw canvas 20x4", () -> {
 
 
-                Optional<CommandWrapper> optionalICommand = commandParser.parseCommand("C 20 4");
-                CommandWrapper command = optionalICommand.get();
+                Optional<Command> optionalICommand = commandParser.parseCommand("C 20 4");
+                Command command = optionalICommand.get();
 
                 ArgumentCaptor<String> argsCaptor = ArgumentCaptor.forClass(String.class);
                 commandManager.execute(command);
@@ -58,8 +58,8 @@ public class CanvasShapeSpecs {
             it("Draw Horizontal LineShape", () -> {
 
 
-                Optional<CommandWrapper> optionalICommand = commandParser.parseCommand("L 1 2 6 2");
-                CommandWrapper command = optionalICommand.get();
+                Optional<Command> optionalICommand = commandParser.parseCommand("L 1 2 6 2");
+                Command command = optionalICommand.get();
 
                 ArgumentCaptor<String> argsCaptor = ArgumentCaptor.forClass(String.class);
                 commandManager.execute(command);
@@ -75,8 +75,8 @@ public class CanvasShapeSpecs {
             it("Draw Vertical LineShape", () -> {
 
 
-                Optional<CommandWrapper> optionalICommand = commandParser.parseCommand("L 6 3 6 4");
-                CommandWrapper command = optionalICommand.get();
+                Optional<Command> optionalICommand = commandParser.parseCommand("L 6 3 6 4");
+                Command command = optionalICommand.get();
 
                 ArgumentCaptor<String> argsCaptor = ArgumentCaptor.forClass(String.class);
                 commandManager.execute(command);
@@ -92,8 +92,8 @@ public class CanvasShapeSpecs {
             it("Draw RectangleShape", () -> {
 
 
-                Optional<CommandWrapper> optionalICommand = commandParser.parseCommand("R 14 1 18 3");
-                CommandWrapper command = optionalICommand.get();
+                Optional<Command> optionalICommand = commandParser.parseCommand("R 14 1 18 3");
+                Command command = optionalICommand.get();
 
                 ArgumentCaptor<String> argsCaptor = ArgumentCaptor.forClass(String.class);
                 commandManager.execute(command);
@@ -109,8 +109,8 @@ public class CanvasShapeSpecs {
             it("Execute Bucket Fill", () -> {
 
 
-                Optional<CommandWrapper> optionalICommand = commandParser.parseCommand("B 10 3 o");
-                CommandWrapper command = optionalICommand.get();
+                Optional<Command> optionalICommand = commandParser.parseCommand("B 10 3 o");
+                Command command = optionalICommand.get();
 
                 ArgumentCaptor<String> argsCaptor = ArgumentCaptor.forClass(String.class);
                 commandManager.execute(command);

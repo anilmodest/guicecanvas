@@ -1,13 +1,11 @@
 package Canvas;
 
-import Canvas.Commands.CommandWrapper;
-import Canvas.Commands.HelpCommandWrapper;
-import Canvas.Commands.QuitCommandWrapper;
+import Canvas.Commands.Command;
+import Canvas.Commands.HelpCommand;
+import Canvas.Commands.QuitCommand;
 import Canvas.Exceptions.ExceptionMessages;
 import com.google.inject.Inject;
-import com.google.inject.Injector;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -26,13 +24,13 @@ public class UserInputHandler {
             while (true) {
                 System.out.printf("Please enter command: ");
                 String cmdText = scanner.nextLine().trim();
-                Optional<CommandWrapper> optionalCommand = commandParser.parseCommand(cmdText);
+                Optional<Command> optionalCommand = commandParser.parseCommand(cmdText);
                 if (optionalCommand.isPresent()) {
-                    CommandWrapper cmd = optionalCommand.get();
+                    Command cmd = optionalCommand.get();
 
-                    if (cmd instanceof QuitCommandWrapper) {
+                    if (cmd instanceof QuitCommand) {
                         System.exit(0);
-                    } else if (cmd instanceof HelpCommandWrapper) {
+                    } else if (cmd instanceof HelpCommand) {
                         helpText();
                     } else {
 

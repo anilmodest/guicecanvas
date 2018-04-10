@@ -1,7 +1,7 @@
 package Canvas;
 
-import Canvas.Commands.CanvasCommandWrapper;
-import Canvas.Commands.CommandWrapper;
+import Canvas.Commands.CanvasCommand;
+import Canvas.Commands.Command;
 import Canvas.Exceptions.ExceptionMessages;
 import Canvas.Renderer.Console;
 import Canvas.Renderer.TextRenderer;
@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 public class CommandManagerTest {
     @Test
     public void execute_command() throws Exception {
-       CanvasCommandWrapper mockCommand = mock(CanvasCommandWrapper.class);
+       CanvasCommand mockCommand = mock(CanvasCommand.class);
        Shape mockShape = mock(Shape.class);
        Console mockConsole = mock(Console.class);
        CommandManager cmdMgr = new CommandManager(new TextRenderer(mockConsole));
@@ -31,7 +31,7 @@ public class CommandManagerTest {
     @Test
     public void should_give_error_message_shape_drawn_before_canvas() throws Exception {
 
-        CommandWrapper mockCommand = mock(CommandWrapper.class);
+        Command mockCommand = mock(Command.class);
         Shape mockShape = mock(Shape.class);
         CommandManager cmdMgr = new CommandManager(new TextRenderer(new SystemConsole()));
         when(mockCommand.getShape()).thenReturn(mockShape);

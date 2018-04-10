@@ -1,19 +1,21 @@
 package Canvas.Commands;
 
 import Canvas.Shapes.Shape;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.regex.Matcher;
 
-public class UndoCommandWrapper implements CommandWrapper {
+public class QuitCommand implements Command {
+
 
     @Override
     public Boolean isValid(String cmd) {
-        Matcher m = SupportedCommands.UNDO_COMMAND.matcher(cmd);
+        Matcher m = SupportedCommands.QUIT_COMMAND.matcher(cmd);
         return m.matches();
     }
 
     @Override
     public Shape getShape() {
-        return null;
+        throw new NotImplementedException();
     }
 }

@@ -5,12 +5,11 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.regex.Matcher;
 
-public class QuitCommandWrapper implements CommandWrapper {
-
+public class HelpCommand implements Command {
 
     @Override
     public Boolean isValid(String cmd) {
-        Matcher m = SupportedCommands.QUIT_COMMAND.matcher(cmd);
+        Matcher m = SupportedCommands.HELP_COMMAND.matcher(cmd);
         return m.matches();
     }
 

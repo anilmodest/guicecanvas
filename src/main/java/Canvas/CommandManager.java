@@ -1,7 +1,7 @@
 package Canvas;
 
-import Canvas.Commands.CanvasCommandWrapper;
-import Canvas.Commands.CommandWrapper;
+import Canvas.Commands.CanvasCommand;
+import Canvas.Commands.Command;
 import Canvas.Exceptions.ExceptionMessages;
 import Canvas.Renderer.Renderer;
 import com.google.inject.Inject;
@@ -15,12 +15,12 @@ public class CommandManager {
         this.renderer = renderer;
     }
 
-    public String execute(CommandWrapper command) {
+    public String execute(Command command) {
         String errorMessage = "";
-        CanvasCommandWrapper canvasCommand = command instanceof CanvasCommandWrapper ? (CanvasCommandWrapper) command: null;
+        CanvasCommand canvasCommand = command instanceof CanvasCommand ? (CanvasCommand) command: null;
 
-        if(command instanceof CanvasCommandWrapper) {
-             canvasCommand = (CanvasCommandWrapper)command;
+        if(command instanceof CanvasCommand) {
+             canvasCommand = (CanvasCommand)command;
         }
 
 

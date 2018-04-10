@@ -5,7 +5,7 @@ import Canvas.Shapes.Shape;
 
 import java.util.regex.Matcher;
 
-public class BucketFillCommandWrapper implements CommandWrapper {
+public class BucketFillCommand implements Command {
     private Integer X1;
     private Integer Y1;
     private char drawingChar;

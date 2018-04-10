@@ -4,7 +4,7 @@ import Canvas.Shapes.Shape;
 
 import java.util.regex.Matcher;
 
-public class RedoCommandWrapper implements CommandWrapper {
+public class RedoCommand implements Command {
 
     @Override
     public Boolean isValid(String cmd) {

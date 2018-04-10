@@ -5,7 +5,7 @@ import Canvas.Shapes.Shape;
 
 import java.util.regex.Matcher;
 
-public class CanvasCommandWrapper implements CommandWrapper {
+public class CanvasCommand implements Command {
     private Integer length;
     private Integer height;
     private Shape canvas;

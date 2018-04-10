@@ -2,23 +2,19 @@ package Canvas;
 
 import Canvas.Commands.*;
 import com.google.inject.Inject;
-import com.google.inject.Injector;
 
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class CommandParser {
 
-    private List<CommandWrapper> supportedCommands;
-    private Set<CommandWrapper> commandWrappers;
+    private Set<Command> commands;
 
     @Inject
-    public CommandParser(Set<CommandWrapper> commandWrappers){
-        this.commandWrappers = commandWrappers;
+    public CommandParser(Set<Command> commandWrappers){
+        this.commands = commandWrappers;
     }
 
-    public Optional<CommandWrapper> parseCommand(String cmdText) {
-        return this.commandWrappers.stream().filter(cw -> cw.isValid(cmdText)).findFirst();
+    public Optional<Command> parseCommand(String cmdText) {
+        return this.commands.stream().filter(cw -> cw.isValid(cmdText)).findFirst();
     }
 }
